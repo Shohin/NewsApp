@@ -19,6 +19,9 @@
 		D3304B832B92F7EF009C54F2 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B822B92F7EF009C54F2 /* KeychainService.swift */; };
 		D3304B872B92FBD7009C54F2 /* AuthRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */; };
 		D3304B892B92FDEB009C54F2 /* KeychainUserLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */; };
+		D3304B8C2B932783009C54F2 /* NewsListFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B8B2B932783009C54F2 /* NewsListFetcherProtocol.swift */; };
+		D3304B8E2B93278E009C54F2 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B8D2B93278E009C54F2 /* News.swift */; };
+		D3304B912B9328C2009C54F2 /* URLSessionNewsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B902B9328C2009C54F2 /* URLSessionNewsFetcher.swift */; };
 		D3C56C132B91EBCA0008E3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */; };
 		D3C56C1F2B91EBCC0008E3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */; };
 		D3C56C222B91EBCC0008E3B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */; };
@@ -41,6 +44,9 @@
 		D3304B822B92F7EF009C54F2 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepoProtocol.swift; sourceTree = "<group>"; };
 		D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUserLoginProvider.swift; sourceTree = "<group>"; };
+		D3304B8B2B932783009C54F2 /* NewsListFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListFetcherProtocol.swift; sourceTree = "<group>"; };
+		D3304B8D2B93278E009C54F2 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		D3304B902B9328C2009C54F2 /* URLSessionNewsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNewsFetcher.swift; sourceTree = "<group>"; };
 		D3C56C0F2B91EBCA0008E3B4 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 			children = (
 				D3304B6D2B92C9B6009C54F2 /* DataTransformer.swift */,
 				D3304B6F2B92CDB5009C54F2 /* UserCredentials.swift */,
+				D3304B8D2B93278E009C54F2 /* News.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 			children = (
 				D3304B7A2B92F21C009C54F2 /* UserRepoProtocol.swift */,
 				D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */,
+				D3304B8B2B932783009C54F2 /* NewsListFetcherProtocol.swift */,
 			);
 			path = Repos;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 		D3304B7C2B92F47E009C54F2 /* AppRoot */ = {
 			isa = PBXGroup;
 			children = (
+				D3304B8F2B9328A8009C54F2 /* Networking */,
 				D3304B812B92F7E3009C54F2 /* Keychain */,
 				D3C56C372B9246600008E3B4 /* Realm */,
 				D3304B7D2B92F4AE009C54F2 /* Resources */,
@@ -139,6 +148,14 @@
 				D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		D3304B8F2B9328A8009C54F2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B902B9328C2009C54F2 /* URLSessionNewsFetcher.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		D3C56C062B91EBCA0008E3B4 = {
@@ -291,15 +308,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3304B8C2B932783009C54F2 /* NewsListFetcherProtocol.swift in Sources */,
 				D3304B752B92E03A009C54F2 /* StringExtensions.swift in Sources */,
 				D3304B732B92CDEE009C54F2 /* RUser.swift in Sources */,
 				D3C56C3B2B9247C20008E3B4 /* AppLaunchService.swift in Sources */,
 				D3C56C2C2B9209610008E3B4 /* LoginVM.swift in Sources */,
 				D3304B7B2B92F21C009C54F2 /* UserRepoProtocol.swift in Sources */,
+				D3304B8E2B93278E009C54F2 /* News.swift in Sources */,
 				D3C56C362B923B390008E3B4 /* LoginModel.swift in Sources */,
 				D3C56C322B92352F0008E3B4 /* UIViewExtensions.swift in Sources */,
 				D3304B892B92FDEB009C54F2 /* KeychainUserLoginProvider.swift in Sources */,
 				D3C56C132B91EBCA0008E3B4 /* AppDelegate.swift in Sources */,
+				D3304B912B9328C2009C54F2 /* URLSessionNewsFetcher.swift in Sources */,
 				D3304B782B92E6DA009C54F2 /* PasswordEncryptor.swift in Sources */,
 				D3304B6A2B92C7BE009C54F2 /* RStorageService.swift in Sources */,
 				D3C56C342B9235500008E3B4 /* UIViewControllerExtensions.swift in Sources */,
