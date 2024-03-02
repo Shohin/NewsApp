@@ -7,25 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3304B662B92C7AC009C54F2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D3304B652B92C7AC009C54F2 /* Realm */; };
+		D3304B682B92C7AC009C54F2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D3304B672B92C7AC009C54F2 /* RealmSwift */; };
+		D3304B6A2B92C7BE009C54F2 /* RStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B692B92C7BE009C54F2 /* RStorageService.swift */; };
+		D3304B6E2B92C9B6009C54F2 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B6D2B92C9B6009C54F2 /* DataTransformer.swift */; };
+		D3304B702B92CDB5009C54F2 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B6F2B92CDB5009C54F2 /* UserCredentials.swift */; };
+		D3304B732B92CDEE009C54F2 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B722B92CDEE009C54F2 /* RUser.swift */; };
+		D3304B752B92E03A009C54F2 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B742B92E03A009C54F2 /* StringExtensions.swift */; };
+		D3304B782B92E6DA009C54F2 /* PasswordEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B772B92E6DA009C54F2 /* PasswordEncryptor.swift */; };
+		D3304B7B2B92F21C009C54F2 /* UserRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B7A2B92F21C009C54F2 /* UserRepoProtocol.swift */; };
+		D3304B832B92F7EF009C54F2 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B822B92F7EF009C54F2 /* KeychainService.swift */; };
+		D3304B872B92FBD7009C54F2 /* AuthRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */; };
+		D3304B892B92FDEB009C54F2 /* KeychainUserLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */; };
 		D3C56C132B91EBCA0008E3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */; };
-		D3C56C152B91EBCA0008E3B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C142B91EBCA0008E3B4 /* SceneDelegate.swift */; };
-		D3C56C172B91EBCA0008E3B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C162B91EBCA0008E3B4 /* ViewController.swift */; };
-		D3C56C1A2B91EBCA0008E3B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C182B91EBCA0008E3B4 /* Main.storyboard */; };
-		D3C56C1D2B91EBCA0008E3B4 /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C1B2B91EBCA0008E3B4 /* NewsApp.xcdatamodeld */; };
 		D3C56C1F2B91EBCC0008E3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */; };
 		D3C56C222B91EBCC0008E3B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */; };
+		D3C56C2C2B9209610008E3B4 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C2B2B9209610008E3B4 /* LoginVM.swift */; };
+		D3C56C2E2B9209700008E3B4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C2D2B9209700008E3B4 /* LoginVC.swift */; };
+		D3C56C322B92352F0008E3B4 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C312B92352F0008E3B4 /* UIViewExtensions.swift */; };
+		D3C56C342B9235500008E3B4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C332B9235500008E3B4 /* UIViewControllerExtensions.swift */; };
+		D3C56C362B923B390008E3B4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C352B923B390008E3B4 /* LoginModel.swift */; };
+		D3C56C3B2B9247C20008E3B4 /* AppLaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C3A2B9247C20008E3B4 /* AppLaunchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3304B692B92C7BE009C54F2 /* RStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RStorageService.swift; sourceTree = "<group>"; };
+		D3304B6D2B92C9B6009C54F2 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
+		D3304B6F2B92CDB5009C54F2 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		D3304B722B92CDEE009C54F2 /* RUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
+		D3304B742B92E03A009C54F2 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		D3304B772B92E6DA009C54F2 /* PasswordEncryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEncryptor.swift; sourceTree = "<group>"; };
+		D3304B7A2B92F21C009C54F2 /* UserRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoProtocol.swift; sourceTree = "<group>"; };
+		D3304B822B92F7EF009C54F2 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepoProtocol.swift; sourceTree = "<group>"; };
+		D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUserLoginProvider.swift; sourceTree = "<group>"; };
 		D3C56C0F2B91EBCA0008E3B4 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3C56C142B91EBCA0008E3B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D3C56C162B91EBCA0008E3B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D3C56C192B91EBCA0008E3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D3C56C1C2B91EBCA0008E3B4 /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
 		D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3C56C212B91EBCC0008E3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3C56C232B91EBCC0008E3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3C56C2B2B9209610008E3B4 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		D3C56C2D2B9209700008E3B4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D3C56C312B92352F0008E3B4 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		D3C56C332B9235500008E3B4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		D3C56C352B923B390008E3B4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		D3C56C3A2B9247C20008E3B4 /* AppLaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +59,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3304B682B92C7AC009C54F2 /* RealmSwift in Frameworks */,
+				D3304B662B92C7AC009C54F2 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3304B6B2B92C9A3009C54F2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B792B92F20E009C54F2 /* Repos */,
+				D3304B6C2B92C9AA009C54F2 /* Data */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D3304B6C2B92C9AA009C54F2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B6D2B92C9B6009C54F2 /* DataTransformer.swift */,
+				D3304B6F2B92CDB5009C54F2 /* UserCredentials.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D3304B712B92CDD7009C54F2 /* RealmObjects */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B722B92CDEE009C54F2 /* RUser.swift */,
+			);
+			path = RealmObjects;
+			sourceTree = "<group>";
+		};
+		D3304B762B92E6CB009C54F2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B772B92E6DA009C54F2 /* PasswordEncryptor.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D3304B792B92F20E009C54F2 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B7A2B92F21C009C54F2 /* UserRepoProtocol.swift */,
+				D3304B862B92FBD7009C54F2 /* AuthRepoProtocol.swift */,
+			);
+			path = Repos;
+			sourceTree = "<group>";
+		};
+		D3304B7C2B92F47E009C54F2 /* AppRoot */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B812B92F7E3009C54F2 /* Keychain */,
+				D3C56C372B9246600008E3B4 /* Realm */,
+				D3304B7D2B92F4AE009C54F2 /* Resources */,
+				D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */,
+				D3C56C3A2B9247C20008E3B4 /* AppLaunchService.swift */,
+			);
+			path = AppRoot;
+			sourceTree = "<group>";
+		};
+		D3304B7D2B92F4AE009C54F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */,
+				D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */,
+				D3C56C232B91EBCC0008E3B4 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D3304B812B92F7E3009C54F2 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B822B92F7EF009C54F2 /* KeychainService.swift */,
+				D3304B882B92FDEB009C54F2 /* KeychainUserLoginProvider.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		D3C56C062B91EBCA0008E3B4 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +160,58 @@
 		D3C56C112B91EBCA0008E3B4 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */,
-				D3C56C142B91EBCA0008E3B4 /* SceneDelegate.swift */,
-				D3C56C162B91EBCA0008E3B4 /* ViewController.swift */,
-				D3C56C182B91EBCA0008E3B4 /* Main.storyboard */,
-				D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */,
-				D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */,
-				D3C56C232B91EBCC0008E3B4 /* Info.plist */,
-				D3C56C1B2B91EBCA0008E3B4 /* NewsApp.xcdatamodeld */,
+				D3304B7C2B92F47E009C54F2 /* AppRoot */,
+				D3C56C292B92093A0008E3B4 /* ViewControllers */,
+				D3C56C2F2B9235190008E3B4 /* Common */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		D3C56C292B92093A0008E3B4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3C56C2A2B9209530008E3B4 /* LoginVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D3C56C2A2B9209530008E3B4 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				D3C56C2B2B9209610008E3B4 /* LoginVM.swift */,
+				D3C56C2D2B9209700008E3B4 /* LoginVC.swift */,
+				D3C56C352B923B390008E3B4 /* LoginModel.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		D3C56C2F2B9235190008E3B4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B762B92E6CB009C54F2 /* Util */,
+				D3304B6B2B92C9A3009C54F2 /* Core */,
+				D3C56C302B92351F0008E3B4 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D3C56C302B92351F0008E3B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3C56C312B92352F0008E3B4 /* UIViewExtensions.swift */,
+				D3C56C332B9235500008E3B4 /* UIViewControllerExtensions.swift */,
+				D3304B742B92E03A009C54F2 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3C56C372B9246600008E3B4 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B712B92CDD7009C54F2 /* RealmObjects */,
+				D3304B692B92C7BE009C54F2 /* RStorageService.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +230,10 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+				D3304B652B92C7AC009C54F2 /* Realm */,
+				D3304B672B92C7AC009C54F2 /* RealmSwift */,
+			);
 			productName = NewsApp;
 			productReference = D3C56C0F2B91EBCA0008E3B4 /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +262,9 @@
 				Base,
 			);
 			mainGroup = D3C56C062B91EBCA0008E3B4;
+			packageReferences = (
+				D3304B642B92C7AC009C54F2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = D3C56C102B91EBCA0008E3B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +281,6 @@
 			files = (
 				D3C56C222B91EBCC0008E3B4 /* LaunchScreen.storyboard in Resources */,
 				D3C56C1F2B91EBCC0008E3B4 /* Assets.xcassets in Resources */,
-				D3C56C1A2B91EBCA0008E3B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +291,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3C56C172B91EBCA0008E3B4 /* ViewController.swift in Sources */,
+				D3304B752B92E03A009C54F2 /* StringExtensions.swift in Sources */,
+				D3304B732B92CDEE009C54F2 /* RUser.swift in Sources */,
+				D3C56C3B2B9247C20008E3B4 /* AppLaunchService.swift in Sources */,
+				D3C56C2C2B9209610008E3B4 /* LoginVM.swift in Sources */,
+				D3304B7B2B92F21C009C54F2 /* UserRepoProtocol.swift in Sources */,
+				D3C56C362B923B390008E3B4 /* LoginModel.swift in Sources */,
+				D3C56C322B92352F0008E3B4 /* UIViewExtensions.swift in Sources */,
+				D3304B892B92FDEB009C54F2 /* KeychainUserLoginProvider.swift in Sources */,
 				D3C56C132B91EBCA0008E3B4 /* AppDelegate.swift in Sources */,
-				D3C56C1D2B91EBCA0008E3B4 /* NewsApp.xcdatamodeld in Sources */,
-				D3C56C152B91EBCA0008E3B4 /* SceneDelegate.swift in Sources */,
+				D3304B782B92E6DA009C54F2 /* PasswordEncryptor.swift in Sources */,
+				D3304B6A2B92C7BE009C54F2 /* RStorageService.swift in Sources */,
+				D3C56C342B9235500008E3B4 /* UIViewControllerExtensions.swift in Sources */,
+				D3C56C2E2B9209700008E3B4 /* LoginVC.swift in Sources */,
+				D3304B6E2B92C9B6009C54F2 /* DataTransformer.swift in Sources */,
+				D3304B872B92FBD7009C54F2 /* AuthRepoProtocol.swift in Sources */,
+				D3304B832B92F7EF009C54F2 /* KeychainService.swift in Sources */,
+				D3304B702B92CDB5009C54F2 /* UserCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D3C56C182B91EBCA0008E3B4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3C56C192B91EBCA0008E3B4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -222,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -279,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -294,22 +449,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/AppRoot/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.pegb.shohin.NewsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.pegb.shohin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,22 +476,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/AppRoot/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tech.pegb.shohin.NewsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.pegb.shohin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,18 +521,29 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCVersionGroup section */
-		D3C56C1B2B91EBCA0008E3B4 /* NewsApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D3C56C1C2B91EBCA0008E3B4 /* NewsApp.xcdatamodel */,
-			);
-			currentVersion = D3C56C1C2B91EBCA0008E3B4 /* NewsApp.xcdatamodel */;
-			path = NewsApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+/* Begin XCRemoteSwiftPackageReference section */
+		D3304B642B92C7AC009C54F2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.47.0;
+			};
 		};
-/* End XCVersionGroup section */
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3304B652B92C7AC009C54F2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3304B642B92C7AC009C54F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		D3304B672B92C7AC009C54F2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3304B642B92C7AC009C54F2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3C56C072B91EBCA0008E3B4 /* Project object */;
 }
