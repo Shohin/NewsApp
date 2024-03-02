@@ -22,6 +22,8 @@
 		D3304B8C2B932783009C54F2 /* NewsListFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B8B2B932783009C54F2 /* NewsListFetcherProtocol.swift */; };
 		D3304B8E2B93278E009C54F2 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B8D2B93278E009C54F2 /* News.swift */; };
 		D3304B912B9328C2009C54F2 /* URLSessionNewsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B902B9328C2009C54F2 /* URLSessionNewsFetcher.swift */; };
+		D3304B942B935F61009C54F2 /* HomeTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B932B935F61009C54F2 /* HomeTabBarVC.swift */; };
+		D3304B962B936BBD009C54F2 /* HomeTabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3304B952B936BBD009C54F2 /* HomeTabBarVM.swift */; };
 		D3C56C132B91EBCA0008E3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */; };
 		D3C56C1F2B91EBCC0008E3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */; };
 		D3C56C222B91EBCC0008E3B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C56C202B91EBCC0008E3B4 /* LaunchScreen.storyboard */; };
@@ -47,6 +49,8 @@
 		D3304B8B2B932783009C54F2 /* NewsListFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListFetcherProtocol.swift; sourceTree = "<group>"; };
 		D3304B8D2B93278E009C54F2 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D3304B902B9328C2009C54F2 /* URLSessionNewsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNewsFetcher.swift; sourceTree = "<group>"; };
+		D3304B932B935F61009C54F2 /* HomeTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarVC.swift; sourceTree = "<group>"; };
+		D3304B952B936BBD009C54F2 /* HomeTabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarVM.swift; sourceTree = "<group>"; };
 		D3C56C0F2B91EBCA0008E3B4 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C56C122B91EBCA0008E3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C56C1E2B91EBCC0008E3B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		D3304B922B935F50009C54F2 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				D3304B932B935F61009C54F2 /* HomeTabBarVC.swift */,
+				D3304B952B936BBD009C54F2 /* HomeTabBarVM.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
 		D3C56C062B91EBCA0008E3B4 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +200,7 @@
 		D3C56C292B92093A0008E3B4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D3304B922B935F50009C54F2 /* HomeVC */,
 				D3C56C2A2B9209530008E3B4 /* LoginVC */,
 			);
 			path = ViewControllers;
@@ -313,6 +327,7 @@
 				D3304B732B92CDEE009C54F2 /* RUser.swift in Sources */,
 				D3C56C3B2B9247C20008E3B4 /* AppLaunchService.swift in Sources */,
 				D3C56C2C2B9209610008E3B4 /* LoginVM.swift in Sources */,
+				D3304B942B935F61009C54F2 /* HomeTabBarVC.swift in Sources */,
 				D3304B7B2B92F21C009C54F2 /* UserRepoProtocol.swift in Sources */,
 				D3304B8E2B93278E009C54F2 /* News.swift in Sources */,
 				D3C56C362B923B390008E3B4 /* LoginModel.swift in Sources */,
@@ -327,6 +342,7 @@
 				D3304B6E2B92C9B6009C54F2 /* DataTransformer.swift in Sources */,
 				D3304B872B92FBD7009C54F2 /* AuthRepoProtocol.swift in Sources */,
 				D3304B832B92F7EF009C54F2 /* KeychainService.swift in Sources */,
+				D3304B962B936BBD009C54F2 /* HomeTabBarVM.swift in Sources */,
 				D3304B702B92CDB5009C54F2 /* UserCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

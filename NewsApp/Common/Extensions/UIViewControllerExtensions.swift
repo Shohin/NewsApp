@@ -21,4 +21,21 @@ extension UIViewController {
         alertVC.addAction(UIAlertAction(title: "Ok", style: .cancel))
         present(alertVC, animated: true)
     }
+    
+    func showQuickConfirmAlert(
+        title: String? = nil,
+        message: String?,
+        discardButtonTitle: String = "No",
+        confirmButtonTitle: String = "Yes",
+        confirmCompletion: @escaping () -> Void
+    ) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertVC.addAction(UIAlertAction(title: discardButtonTitle, style: .destructive))
+        
+        alertVC.addAction(UIAlertAction(title: confirmButtonTitle, style: .default, handler: { _ in
+            confirmCompletion()
+        }))
+        present(alertVC, animated: true)
+    }
 }

@@ -48,10 +48,9 @@ final class KeychainService {
         }
     }
     
-    func deleteCredentials(username: String) -> Bool {
+    func deleteCredentials() -> Bool {
         let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: username,
+            kSecClass as String: kSecClassGenericPassword
         ]
         // Find user and delete
         if SecItemDelete(query as CFDictionary) == noErr {

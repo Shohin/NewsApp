@@ -13,6 +13,8 @@ final class AppLaunchService {
     
     private var window: UIWindow?
     
+    let newsApi = URLSessionNewsFetcher()
+    
     func launch() {
         setupStorage()
         
@@ -33,9 +35,19 @@ final class AppLaunchService {
     }
     
     private func showHomeVC(credentials: UserCredentials) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .red
-        window?.rootViewController = vc
+        let homeVC = makeHomeTabBarVC(credentials: credentials)
+        homeVC.view.backgroundColor = .white
+        homeVC.tabBar.unselectedItemTintColor = .gray
+        
+        let topHeadlinesVC = makeNewsFeed()
+        topHeadlinesVC.tabBarItem = UITabBarItem(title: "Top Headlines", image: UIImage(named: "globe"), tag: 0)
+        
+        let savedNewsVC = makeNewsFeed()
+        savedNewsVC.tabBarItem = UITabBarItem(title: "Saved News", image: UIImage(named: "bookmark"), tag: 1)
+        
+        homeVC.viewControllers = [topHeadlinesVC, savedNewsVC]
+        
+        window?.rootViewController = UINavigationController(rootViewController: homeVC)
     }
     
     private func showLoginVC() {
@@ -44,11 +56,35 @@ final class AppLaunchService {
         let vc = LoginVC(vm: vm)
         window?.rootViewController = vc
     }
+    
+    private func makeNewsFeed() -> UIViewController {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .white
+        return vc
+    }
+    
+    private func makeHomeTabBarVC(credentials: UserCredentials) -> HomeTabBarVC {
+        let vm = HomeTabBarVM(credentials: credentials)
+        vm.delegate = self
+        return HomeTabBarVC(vm: vm)
+    }
 }
 
 extension AppLaunchService: LoginDelegate {
     func loginSucceed(credentials: UserCredentials) {
         showHomeVC(credentials: credentials)
+    }
+}
+
+extension AppLaunchService: HomeTabBarDelegate {
+    func logout() {
+        if KeychainService.shared.deleteCredentials() {
+            showLoginVC()
+        }
+    }
+    
+    func searchTyping(searchText: String?) {
+        debugPrint("Search text: \(searchText ?? "Empty")")
     }
 }
 
