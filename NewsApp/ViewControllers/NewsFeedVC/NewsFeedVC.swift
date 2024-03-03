@@ -134,8 +134,13 @@ extension NewsFeedVC {
 
 extension NewsFeedVC: NewsFeedTableViewCellDelegate {
     func bookmarkChanged(indexPath: IndexPath, isBookmarked: Bool) {
-        if vm.bookmark(news: vm.feeds[indexPath.row], isBookmarked: isBookmarked) {
+        let succeed = vm.bookmark(news: vm.feeds[indexPath.row], isBookmarked: isBookmarked)
+        guard succeed else { return }
+        switch vm.fetchType {
+        case .all:
             tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .bookmarked:
+            fetchNewsFeed()
         }
     }
 }

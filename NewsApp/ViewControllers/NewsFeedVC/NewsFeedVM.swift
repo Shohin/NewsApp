@@ -40,7 +40,7 @@ final class NewsFeedVM {
     
     private var pagination = Pagination(limit: 20, page: 1, totalResultsCount: 20)
     
-    private let fetchType: NewsFeedFetchType
+    let fetchType: NewsFeedFetchType
     private let feedFetcher: NewsListFetcherProtocol
     private let bookmarker: BookmarkableProtocol
     init(
