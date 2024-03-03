@@ -11,7 +11,7 @@ import UIKit
 final class NewsFeedLoadMoreTableViewCell: UITableViewCell {
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
-        indicator.hidesWhenStopped = true
+        indicator.startAnimating()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
@@ -36,5 +36,9 @@ final class NewsFeedLoadMoreTableViewCell: UITableViewCell {
     private func setupLayout() {
         activityIndicator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
+    
+    func update() {
+        activityIndicator.startAnimating()
     }
 }

@@ -59,7 +59,6 @@ final class NewsFeedVC: UITableViewController {
     }
     
     private func setup() {
-        tableView.rowHeight = 120
         tableView.separatorStyle = .none
         
         let refreshControl = UIRefreshControl()
@@ -108,16 +107,22 @@ extension NewsFeedVC {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        vm.feeds.count
+        switch section {
+        case 1:
+            return 1
+        default:
+            return vm.feeds.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
             let cellID = String(describing: NewsFeedLoadMoreTableViewCell.self)
-            var cell = tableView.dequeueReusableCell(withIdentifier: cellID)
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellID) as? NewsFeedLoadMoreTableViewCell
             if cell == nil {
                 cell = NewsFeedLoadMoreTableViewCell(reuseIdentifier: cellID)
             }
+            cell?.update()
             return cell!
         }
         
@@ -139,6 +144,15 @@ extension NewsFeedVC {
             vm.fetchMoreFeeds {[weak self] errorMsg in
                 self?.handleFetchFeedCompletion(errorMsg: errorMsg)
             }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 1:
+            return 44
+        default:
+            return 120
         }
     }
     
