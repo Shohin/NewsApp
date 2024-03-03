@@ -16,6 +16,16 @@ final class NewsFeedVC: UITableViewController {
         return indicator
     }()
     
+    private lazy var emptyLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.text = "News feed is empty"
+        lbl.numberOfLines = 0
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.isHidden = true
+        return lbl
+    }()
+    
     private let vm: NewsFeedVM
     init(vm: NewsFeedVM) {
         self.vm = vm
@@ -59,6 +69,10 @@ final class NewsFeedVC: UITableViewController {
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        
+        view.addSubview(emptyLabel)
+        emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        emptyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
     }
     
     private func fetchNewsFeed() {
@@ -75,6 +89,7 @@ final class NewsFeedVC: UITableViewController {
         } else {
             showQuickAlert(title: "Loading news failed", message: errorMsg)
         }
+        emptyLabel.isHidden = !vm.feeds.isEmpty
     }
     
     //MARK: actions
