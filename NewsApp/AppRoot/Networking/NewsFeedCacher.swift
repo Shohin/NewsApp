@@ -21,11 +21,18 @@ final class NewsFeedCacher: NewsListFetcherProtocol {
     func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
         fetcher.fetchNews(limit: limit, page: page) {[weak self] result in
             switch result {
-            case .success(let result):
-                self?.saveOnlyMissed(result: result)
-                completion(.success(result))
+            case .success(let res):
+                self?.saveOnlyMissed(result: res)
+                completion(result)
             case .failure(let error):
-                completion(.failure(error))
+                switch error {
+                case .network,
+                        .loadingFailed:
+                    self?.cacher.fetchNews(limit: limit, page: page, completion: completion)
+                default:
+                    completion(result)
+                }
+                
             }
         }
     }
