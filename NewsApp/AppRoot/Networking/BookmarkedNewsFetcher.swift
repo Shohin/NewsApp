@@ -13,10 +13,12 @@ final class BookmarkedNewsFetcher: NewsListFetcherProtocol {
         self.storage = storage
     }
     
-    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
+    func fetchNews(searchText: String?, limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
         let news: [RNews] = storage.fetchData()
-        let resultNews = news.filter { $0.bookmarked }
-            .map { $0.transform() }
+        let resultNews = news.filter {
+            $0.bookmarked
+            && (searchText ?? "").isEmpty ? true :  $0.title.contains(searchText ?? "")
+        }.map { $0.transform() }
         let result = NewsFetchResult(news: resultNews, totalResultsCount: resultNews.count)
         completion(.success(result))
     }

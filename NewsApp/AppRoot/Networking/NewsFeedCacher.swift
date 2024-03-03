@@ -18,8 +18,8 @@ final class NewsFeedCacher: NewsListFetcherProtocol {
         self.fetcher = fetcher
     }
     
-    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
-        fetcher.fetchNews(limit: limit, page: page) {[weak self] result in
+    func fetchNews(searchText: String?, limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
+        fetcher.fetchNews(searchText: searchText, limit: limit, page: page) {[weak self] result in
             switch result {
             case .success(let res):
                 self?.saveOnlyMissed(result: res)
@@ -28,7 +28,7 @@ final class NewsFeedCacher: NewsListFetcherProtocol {
                 switch error {
                 case .network,
                         .loadingFailed:
-                    self?.cacher.fetchNews(limit: limit, page: page, completion: completion)
+                    self?.cacher.fetchNews(searchText: searchText, limit: limit, page: page, completion: completion)
                 default:
                     completion(result)
                 }

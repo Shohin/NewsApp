@@ -36,5 +36,5 @@ struct NewsFetchResult {
 }
 
 protocol NewsListFetcherProtocol {
-    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void)
+    func fetchNews(searchText: String?, limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void)
 }

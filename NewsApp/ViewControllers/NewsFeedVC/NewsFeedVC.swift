@@ -40,6 +40,14 @@ final class NewsFeedVC: UITableViewController {
         super.viewDidAppear(animated)
     }
     
+    func searchFeeds(searchText: String?) {
+        refreshControl?.beginRefreshing()
+        vm.fetchFeeds(searchText: searchText) {[weak self] errorMsg in
+            self?.refreshControl?.endRefreshing()
+            self?.handleFetchFeedCompletion(errorMsg: errorMsg)
+        }
+    }
+    
     private func setup() {
         tableView.rowHeight = 120
         tableView.separatorStyle = .none
@@ -55,7 +63,7 @@ final class NewsFeedVC: UITableViewController {
     
     private func fetchNewsFeed() {
         activityIndicator.startAnimating()
-        vm.fetchFeeads {[weak self] errorMsg in
+        vm.fetchFeeds {[weak self] errorMsg in
             self?.activityIndicator.stopAnimating()
             self?.handleFetchFeedCompletion(errorMsg: errorMsg)
         }
@@ -72,11 +80,10 @@ final class NewsFeedVC: UITableViewController {
     //MARK: actions
     @objc
     private func pullToRefreshAction() {
-        vm.fetchFeeads {[weak self] errorMsg in
+        vm.fetchFeeds {[weak self] errorMsg in
             self?.refreshControl?.endRefreshing()
             self?.handleFetchFeedCompletion(errorMsg: errorMsg)
         }
-        tableView.reloadData()
     }
 }
 

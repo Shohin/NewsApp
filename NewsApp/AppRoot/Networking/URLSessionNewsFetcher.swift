@@ -8,8 +8,14 @@
 import Foundation
 
 final class URLSessionNewsFetcher: NewsListFetcherProtocol {
-    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=1b835322859d405e9e529f0282efaf6d&pageSize=\(limit)&page=\(page)") else {
+    func fetchNews(searchText: String?, limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
+        var urlStr = "https://newsapi.org/v2/top-headlines?country=us&apiKey=1b835322859d405e9e529f0282efaf6d&pageSize=\(limit)&page=\(page)"
+        if let searchText,
+           !searchText.isEmpty {
+            urlStr.append("&q=\(searchText)")
+        }
+        
+        guard let url = URL(string: urlStr) else {
             completion(.failure(.invalidURL))
             return
         }

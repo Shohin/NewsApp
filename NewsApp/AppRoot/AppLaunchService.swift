@@ -13,6 +13,8 @@ final class AppLaunchService {
     
     private var window: UIWindow?
     
+    private var homeVC: HomeTabBarVC? { (window?.rootViewController as? UINavigationController)?.topViewController as? HomeTabBarVC }
+     
     let newsApi = URLSessionNewsFetcher()
     
     func launch() {
@@ -102,6 +104,7 @@ extension AppLaunchService: HomeTabBarDelegate {
     }
     
     func searchTyping(searchText: String?) {
+        (homeVC?.selectedViewController as? NewsFeedVC)?.searchFeeds(searchText: searchText)
         debugPrint("Search text: \(searchText ?? "Empty")")
     }
 }
@@ -143,8 +146,12 @@ extension RStorageService: UserRepoProtocol {
 }
 
 extension RStorageService: NewsListFetcherProtocol {
-    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
-        let rnews: [RNews] = fetchData()
+    func fetchNews(searchText: String?, limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
+        var rnews: [RNews] = fetchData()
+        if let searchText,
+           !searchText.isEmpty {
+            rnews = rnews.filter { $0.title.contains(searchText) }
+        }
         let result = NewsFetchResult(
             news: rnews.map { $0.transform() },
             totalResultsCount: rnews.count

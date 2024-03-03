@@ -55,16 +55,22 @@ final class NewsFeedVM {
     
     var hasNextPage: Bool { pagination.hasNextPage }
     
-    func fetchFeeads(completion: @escaping (String?) -> Void) {
-        pagination.offset = 0
-        pagination.page = 1
-        feeds = []
-        fetchFeeadsCore(completion: completion)
+    func fetchFeeds(searchText: String? = nil, completion: @escaping (String?) -> Void) {
+        resetPagination()
+        fetchFeeadsCore(searchText: searchText, completion: completion)
     }
     
     func fetchMoreFeeds(completion: @escaping (String?) -> Void) {
         pagination.page += 1
-        fetchFeeadsCore(completion: completion)
+        let feeds = self.feeds
+        fetchFeeadsCore(searchText: nil, completion: {[weak self] msg in
+            guard let self else { return }
+            if msg == nil {
+                self.feeds.insert(contentsOf: feeds, at: self.pagination.offset)
+                self.pagination.offset = self.feeds.count
+            }
+            completion(msg)
+        })
     }
     
     func newsFeedPresenter(news: News) -> NewsFeedPresenter {
@@ -78,12 +84,12 @@ final class NewsFeedVM {
         bookmarker.bookmark(news: news, isBookmarked: isBookmarked)
     }
     
-    private func fetchFeeadsCore(completion: @escaping (String?) -> Void) {
-        feedFetcher.fetchNews(limit: pagination.limit, page: pagination.page) {[weak self] result in
+    private func fetchFeeadsCore(searchText: String?, completion: @escaping (String?) -> Void) {
+        feedFetcher.fetchNews(searchText: searchText, limit: pagination.limit, page: pagination.page) {[weak self] result in
             guard let self else { return }
             switch result {
             case .success(let fetchResult):
-                self.feeds.insert(contentsOf: fetchResult.news, at: self.pagination.offset)
+                self.feeds = fetchResult.news
                 self.pagination.offset = self.feeds.count
                 self.pagination = self.pagination.copyWith(totalResultsCount: fetchResult.totalResultsCount)
                 DispatchQueue.main.async {
@@ -95,5 +101,10 @@ final class NewsFeedVM {
                 }
             }
         }
+    }
+    
+    private func resetPagination() {
+        pagination.offset = 0
+        pagination.page = 1
     }
 }
