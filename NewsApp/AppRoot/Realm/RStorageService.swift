@@ -10,6 +10,11 @@ import RealmSwift
 
 typealias RObjectTransformer = Object & DataTransformer
 
+struct FetchResult<T: RObjectTransformer> {
+    let items: [T]
+    let totalResultsCount: Int
+}
+
 final class RStorageService {
     static let shared = RStorageService()
     
@@ -38,6 +43,15 @@ final class RStorageService {
         newRealm.objects(T.self).map { $0 }
     }
     
+    func fetchData<T: RObjectTransformer>(start: Int, end: Int) -> FetchResult<T> {
+        let itemsRes = newRealm.objects(T.self)
+        return FetchResult(items: Array(itemsRes[start..<end]), totalResultsCount: itemsRes.count)
+    }
+    
+    func fetchData<T: RObjectTransformer>(id: String) -> T? {
+        newRealm.object(ofType: T.self, forPrimaryKey: id)
+    }
+    
     func save<T: RObjectTransformer>(data: T) throws {
         let realm = newRealm
         try safeWrite(realm: realm) {
@@ -49,7 +63,7 @@ final class RStorageService {
         try data.forEach { try save(data: $0) }
     }
     
-    func deleteAll<T: RObjectTransformer>(predicate: ((T) -> Bool)? = nil) throws {
+    func deleteAll<T: RObjectTransformer>(object: T.Type, predicate: ((T) -> Bool)? = nil) throws {
         let realm = newRealm
         try safeWrite(realm: realm) {
             if let predicate {
@@ -58,6 +72,10 @@ final class RStorageService {
                 realm.delete(realm.objects(T.self))
             }
         }
+    }
+    
+    func safeUpdate(block: @escaping () -> Void) throws {
+        try safeWrite(realm: newRealm, block)
     }
     
     private func safeWrite(realm: Realm, _ block: (() throws -> Void)) throws {

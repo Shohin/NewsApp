@@ -8,8 +8,8 @@
 import Foundation
 
 final class URLSessionNewsFetcher: NewsListFetcherProtocol {
-    func fetchNews(completion: @escaping (Result<[News], NewsListFetcherError>) -> Void) {
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=1b835322859d405e9e529f0282efaf6d&pageSize=20&page=1") else {
+    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
+        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=1b835322859d405e9e529f0282efaf6d&pageSize=\(limit)&page=\(page)") else {
             completion(.failure(.invalidURL))
             return
         }
@@ -21,24 +21,19 @@ final class URLSessionNewsFetcher: NewsListFetcherProtocol {
         task.resume()
     }
     
-    private func handleCompletion(data: Data?, error: Error?, completion: @escaping (Result<[News], NewsListFetcherError>) -> Void) {
+    private func handleCompletion(data: Data?, error: Error?, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void) {
         if let data {
-            let result = parseData(data)
-            DispatchQueue.main.async {
-                completion(result)
-            }
+            completion(parseData(data))
         } else {
-            DispatchQueue.main.async {
-                if let error {
-                    completion(.failure(.network(error)))
-                } else {
-                    completion(.failure(.loadingFailed))
-                }
+            if let error {
+                completion(.failure(.network(error)))
+            } else {
+                completion(.failure(.loadingFailed))
             }
         }
     }
     
-    private func parseData(_ data: Data) -> Result<[News], NewsListFetcherError> {
+    private func parseData(_ data: Data) -> Result<NewsFetchResult, NewsListFetcherError> {
         do {
             let decoder = JSONDecoder()
 
@@ -59,7 +54,7 @@ final class URLSessionNewsFetcher: NewsListFetcherProtocol {
             let newsResponse = try decoder.decode(NewsResponse.self, from: data)
             if newsResponse.status == "ok",
                let articles = newsResponse.articles {
-                return .success(articles.compactMap { $0.news })
+                return .success(NewsFetchResult(news: articles.compactMap { $0.news }, totalResultsCount: newsResponse.totalResults ?? 0) )
             } else if let errorMsg = newsResponse.message {
                 return .failure(.message(errorMsg))
             } else {

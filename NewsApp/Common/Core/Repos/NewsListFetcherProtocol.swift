@@ -13,8 +13,28 @@ enum NewsListFetcherError: Error {
     case message(String)
     case network(Error)
     case loadingFailed
+    
+    var message: String {
+        switch self {
+        case .invalidURL:
+            return "Invalid url"
+        case .invalidJSONFormat:
+            return "Invalid json format"
+        case .message(let msg):
+            return msg
+        case .network(_):
+            return "Networking error"
+        case .loadingFailed:
+            return "Loading failed"
+        }
+    }
+}
+
+struct NewsFetchResult {
+    let news: [News]
+    let totalResultsCount: Int
 }
 
 protocol NewsListFetcherProtocol {
-    func fetchNews(completion: @escaping (Result<[News], NewsListFetcherError>) -> Void)
+    func fetchNews(limit: Int, page: Int, completion: @escaping (Result<NewsFetchResult, NewsListFetcherError>) -> Void)
 }
