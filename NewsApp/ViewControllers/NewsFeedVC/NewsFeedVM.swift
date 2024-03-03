@@ -35,8 +35,14 @@ enum NewsFeedFetchType {
     case bookmarked
 }
 
+protocol NewsFeedDelegate: AnyObject {
+    func selectedFeed(_ feed: News)
+}
+
 final class NewsFeedVM {
     private(set) var feeds = [News]()
+    
+    weak var delegate: NewsFeedDelegate?
     
     private var pagination = Pagination(limit: 20, page: 1, totalResultsCount: 20)
     

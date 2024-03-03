@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 
 protocol NewsFeedTableViewCellDelegate: AnyObject {
     func bookmarkChanged(indexPath: IndexPath, isBookmarked: Bool)
@@ -95,8 +94,6 @@ final class NewsFeedTableViewCell: UITableViewCell {
     private func setup() {
         selectionStyle = .none
         
-        imgView.kf.indicatorType = .activity
-        
         contentView.addSubview(imgView)
         contentView.addSubview(containerStackView)
         
@@ -120,10 +117,7 @@ final class NewsFeedTableViewCell: UITableViewCell {
         titleLabel.text = presenter.title
         publishedAtLabel.text = presenter.publishedAt
         bookmarkButton.isSelected = presenter.isBookmarked
-        imgView.kf.setImage(
-            with: URL(string: presenter.imgURL ?? ""),
-            placeholder: UIImage(named: "feed-placeholder")
-        )
+        imgView.loadImage(url: URL(string: presenter.imgURL ?? ""))
         self.indexPath = indexPath
     }
     

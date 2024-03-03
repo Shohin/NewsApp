@@ -157,7 +157,9 @@ extension NewsFeedVC {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrint("Selected feed: \(vm.feeds[indexPath.row])")
+        let feed = vm.feeds[indexPath.row]
+        debugPrint("Selected feed: \(feed)")
+        vm.delegate?.selectedFeed(feed)
     }
 }
 

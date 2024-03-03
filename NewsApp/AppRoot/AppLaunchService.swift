@@ -13,7 +13,11 @@ final class AppLaunchService {
     
     private var window: UIWindow?
     
-    private var homeVC: HomeTabBarVC? { (window?.rootViewController as? UINavigationController)?.topViewController as? HomeTabBarVC }
+    private var rootNavigationVC: UINavigationController? {
+        window?.rootViewController as? UINavigationController
+    }
+    
+    private var homeVC: HomeTabBarVC? { rootNavigationVC?.topViewController as? HomeTabBarVC }
      
     let newsApi = URLSessionNewsFetcher()
     
@@ -73,6 +77,7 @@ final class AppLaunchService {
             feedFetcher: fetcher,
             bookmarker: RStorageService.shared
         )
+        vm.delegate = self
         let vc = NewsFeedVC(vm: vm)
         vc.view.backgroundColor = .white
         return vc
@@ -181,6 +186,21 @@ extension RStorageService: BookmarkableProtocol {
     }
 }
 
+extension AppLaunchService: NewsFeedDelegate {
+    func selectedFeed(_ feed: News) {
+        let vm = NewsFeedDetailsVM(news: feed, bookmarker: RStorageService.shared)
+        vm.delegate = self
+        let vc = NewsFeedDetailsVC(vm: vm)
+        vc.modalPresentationStyle = .fullScreen
+        rootNavigationVC?.present(vc, animated: true)
+    }
+}
+
+extension AppLaunchService: NewsFeedDetailsDelegate {
+    func closeTapped() {
+        rootNavigationVC?.dismiss(animated: true)
+    }
+}
 extension AuthError {
     var message: String {
         switch self {
